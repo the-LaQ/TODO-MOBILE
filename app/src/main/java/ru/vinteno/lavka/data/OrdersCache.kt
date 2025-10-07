@@ -31,21 +31,24 @@ object OrdersCache {
         return listOf(
             Order(
                 id = 1,
-                items = "Кола, Чипсы",
-                delivery_address = "Общежитие 5, комната 312",
-                status = "Новый"
+                products = "Кола, Чипсы",
+                name = "Общежитие 5, комната 312",
+                status = "Новый",
+                dateTime = "2025-10-06T19:00:00"
             ),
             Order(
                 id = 2,
-                items = "Пицца 'Пепперони'",
-                delivery_address = "Учебный корпус 3, ауд. 101",
-                status = "Доставлен"
+                products = "Пицца 'Пепперони'",
+                name = "Учебный корпус 3, ауд. 101",
+                status = "Доставлен",
+                dateTime = ""
             ),
             Order(
                 id = 3,
-                items = "Тетради (5 шт.), Ручка",
-                delivery_address = "Библиотека, читальный зал",
-                status = "Новый"
+                products = "Тетради (5 шт.), Ручка",
+                name = "Библиотека, читальный зал",
+                status = "Новый",
+                dateTime = ""
             )
         )
     }

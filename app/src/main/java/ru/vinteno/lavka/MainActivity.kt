@@ -33,15 +33,16 @@ class MainActivity : AppCompatActivity() {
         val stateEmpty = findViewById<android.view.View>(R.id.stateEmpty)
         val btnRetry = findViewById<android.view.View>(R.id.btnRetry)
         val btnRefresh = findViewById<android.view.View>(R.id.btnRefresh)
-        val swipe = findViewById<androidx.swiperefreshlayout.widget.SwipeRefreshLayout>(R.id.swipeRefresh)
+        val swipe =
+            findViewById<androidx.swiperefreshlayout.widget.SwipeRefreshLayout>(R.id.swipeRefresh)
         swipe.setColorSchemeResources(R.color.primary)
-        
+
         btnRefresh.setOnClickListener { viewModel.refresh() }
 
         val adapter = OrdersAdapter()
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
-        
+
         // Add item decoration for better spacing
         val spacing = resources.getDimensionPixelSize(R.dimen.spacing_sm)
         recycler.addItemDecoration(OrderItemDecoration(spacing))
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                         stateEmpty.isVisible = false
                         swipe.isRefreshing = false
                     }
+
                     is OrdersUiState.Data -> {
                         progress.isVisible = false
                         recycler.isVisible = true
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                         adapter.submitList(state.orders)
                         swipe.isRefreshing = false
                     }
+
                     is OrdersUiState.Empty -> {
                         progress.isVisible = false
                         recycler.isVisible = false
