@@ -10,6 +10,8 @@ import ru.vinteno.lavka.ui.OrdersAdapter
 import ru.vinteno.lavka.ui.OrdersUiState
 import ru.vinteno.lavka.ui.OrdersViewModel
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import ru.vinteno.lavka.ui.OrderItemDecoration
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         val recycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rvOrders)
         val progress = findViewById<android.view.View>(R.id.progress)

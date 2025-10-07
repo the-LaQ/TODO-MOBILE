@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import ru.vinteno.lavka.R
 import ru.vinteno.lavka.data.Order
 
@@ -34,10 +36,19 @@ class OrdersAdapter : ListAdapter<Order, OrdersAdapter.VH>(Diff) {
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val address: TextView = itemView.findViewById(R.id.tv_delivery_address)
         private val items: TextView = itemView.findViewById(R.id.tv_items)
+        private val btnAccept: MaterialButton = itemView.findViewById(R.id.btnAccept)
 
         fun bind(order: Order) {
             address.text = order.delivery_address
             items.text = order.items
+            
+            btnAccept.setOnClickListener {
+                val context = itemView.context
+                if (context is FragmentActivity) {
+                    val dialog = OrderDetailsDialog.newInstance(order)
+                    dialog.show(context.supportFragmentManager, "OrderDetailsDialog")
+                }
+            }
         }
     }
 }

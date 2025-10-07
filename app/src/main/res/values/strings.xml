@@ -16,4 +16,12 @@
     <string name="today_orders">Сегодня</string>
     <string name="today_earnings">Заработано</string>
     <string name="online_time">Онлайн</string>
+    <string name="customer_info">Клиент</string>
+    <string name="delivery_address">Адрес доставки</string>
+    <string name="order_items">Состав заказа</string>
+    <string name="delivery_time">Время</string>
+    <string name="distance">Расстояние</string>
+    <string name="payment">Оплата</string>
+    <string name="order_accepted">Заказ принят!</string>
+    <string name="order_details">Детали заказа</string>
 </resources>
