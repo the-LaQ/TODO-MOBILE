@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Lavka</string>
+    <string name="title_new_orders">Новые заказы</string>
+    <string name="error_loading">Не удалось загрузить заказы</string>
+    <string name="retry">Обновить</string>
+    <string name="empty_new_orders">Новых заказов нет</string>
+    <string name="empty_subtitle">Потяните вниз, чтобы обновить список</string>
+    <string name="toast_offline">Нет подключения к API, показаны локальные данные</string>
+    <string name="delivery_icon">Иконка доставки</string>
+    <string name="new_order">Новый заказ</string>
+    <string name="just_now">сейчас</string>
+    <string name="accept_order">Принять заказ</string>
+    <string name="order_time">~15 мин</string>
+    <string name="order_distance">0.8 км</string>
+    <string name="orders_available">3 заказа доступно</string>
+    <string name="today_orders">Сегодня</string>
+    <string name="today_earnings">Заработано</string>
+    <string name="online_time">Онлайн</string>
+</resources>
