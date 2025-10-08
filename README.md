@@ -4,8 +4,8 @@
 Это приложение для курьеров службы доставки. Курьеры видят список новых заказов и могут принимать их к выполнению.
 
 ## Пример того, как будет выглядеть сделанное задание:
-<img width="576" height="1280" alt="image" src="https://github.com/user-attachments/assets/36292499-3fd7-4383-b1b6-6a00f40e0c90" />
-<img width="576" height="1280" alt="image" src="https://github.com/user-attachments/assets/eb773d27-ca99-4588-9e40-78790f0407fa" />
+<img width="376" height="980" alt="image" src="https://github.com/user-attachments/assets/36292499-3fd7-4383-b1b6-6a00f40e0c90" />
+<img width="376" height="980" alt="image" src="https://github.com/user-attachments/assets/eb773d27-ca99-4588-9e40-78790f0407fa" />
 
 
 ---
