@@ -15,8 +15,11 @@ import ru.vinteno.lavka.data.Order
 
 class OrdersAdapter : ListAdapter<Order, OrdersAdapter.VH>(Diff) {
     object Diff : DiffUtil.ItemCallback<Order>() {
-        override fun areItemsTheSame(oldItem: Order, newItem: Order): Boolean = oldItem.id == newItem.id
-        override fun areContentsTheSame(oldItem: Order, newItem: Order): Boolean = oldItem == newItem
+        override fun areItemsTheSame(oldItem: Order, newItem: Order): Boolean =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: Order, newItem: Order): Boolean =
+            oldItem == newItem
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -26,7 +29,7 @@ class OrdersAdapter : ListAdapter<Order, OrdersAdapter.VH>(Diff) {
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(getItem(position))
-        
+
         // Animate item entrance
         val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.slide_up)
         animation.startOffset = position * 50L
@@ -39,9 +42,9 @@ class OrdersAdapter : ListAdapter<Order, OrdersAdapter.VH>(Diff) {
         private val btnAccept: MaterialButton = itemView.findViewById(R.id.btnAccept)
 
         fun bind(order: Order) {
-            address.text = order.delivery_address
-            items.text = order.items
-            
+            address.text = order.name
+            items.text = order.products
+
             btnAccept.setOnClickListener {
                 val context = itemView.context
                 if (context is FragmentActivity) {
