@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import ru.vinteno.lavka.ui.OrdersAdapter
 import ru.vinteno.lavka.ui.OrdersUiState
 import ru.vinteno.lavka.ui.OrdersViewModel
 import android.widget.Toast
@@ -27,6 +25,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+
+        // Инициализация объектов
         val recycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rvOrders)
         val progress = findViewById<android.view.View>(R.id.progress)
         val stateError = findViewById<android.view.View>(R.id.stateError)
@@ -39,18 +39,22 @@ class MainActivity : AppCompatActivity() {
 
         btnRefresh.setOnClickListener { viewModel.refresh() }
 
-        val adapter = OrdersAdapter()
-        recycler.layoutManager = LinearLayoutManager(this)
-        recycler.adapter = adapter
+        // TODO: Задание 1 - Создайте адаптер OrdersAdapter и подключите его к RecyclerView
+        // Hint: val adapter = OrdersAdapter()
+        // Hint: recycler.layoutManager = LinearLayoutManager(this)
+        // Hint: recycler.adapter = adapter
 
         // Add item decoration for better spacing
         val spacing = resources.getDimensionPixelSize(R.dimen.spacing_sm)
         recycler.addItemDecoration(OrderItemDecoration(spacing))
 
+        // Слушатель на действия
         btnRetry.setOnClickListener { viewModel.refresh() }
         swipe.setOnRefreshListener { viewModel.refresh() }
 
         lifecycleScope.launchWhenStarted {
+
+            // Обработка viewModel
             viewModel.state.collect { state ->
                 when (state) {
                     is OrdersUiState.Loading -> {
@@ -66,7 +70,8 @@ class MainActivity : AppCompatActivity() {
                         recycler.isVisible = true
                         stateError.isVisible = false
                         stateEmpty.isVisible = false
-                        adapter.submitList(state.orders)
+                        // TODO: Задание 2 - Передайте список заказов в адаптер
+                        // Hint: adapter.submitList(state.orders)
                         swipe.isRefreshing = false
                     }
 
@@ -75,16 +80,8 @@ class MainActivity : AppCompatActivity() {
                         recycler.isVisible = false
                         stateError.isVisible = false
                         stateEmpty.isVisible = true
-                        adapter.submitList(emptyList())
                         swipe.isRefreshing = false
                     }
-//                    is OrdersUiState.Error -> {
-//                        progress.isVisible = false
-//                        recycler.isVisible = false
-//                        stateError.isVisible = true
-//                        stateEmpty.isVisible = false
-//                        swipe.isRefreshing = false
-//                    }
                 }
             }
         }

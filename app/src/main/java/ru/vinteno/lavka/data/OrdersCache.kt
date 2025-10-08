@@ -1,5 +1,6 @@
 package ru.vinteno.lavka.data
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import com.google.gson.Gson
@@ -10,6 +11,7 @@ object OrdersCache {
     private const val KEY_ORDERS_JSON = "orders_json"
     private val gson = Gson()
 
+    @SuppressLint("UseKtx")
     fun save(context: Context, orders: List<Order>) {
         val json = gson.toJson(orders)
         context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
@@ -27,7 +29,7 @@ object OrdersCache {
     }
 
     fun loadBundledFallback(): List<Order> {
-        // Simple hardcoded fallback to ensure UI always has content
+        // Заказы
         return listOf(
             Order(
                 id = 1,
@@ -35,20 +37,6 @@ object OrdersCache {
                 name = "Общежитие 5, комната 312",
                 status = "Новый",
                 dateTime = "2025-10-06T19:00:00"
-            ),
-            Order(
-                id = 2,
-                products = "Пицца 'Пепперони'",
-                name = "Учебный корпус 3, ауд. 101",
-                status = "Доставлен",
-                dateTime = ""
-            ),
-            Order(
-                id = 3,
-                products = "Тетради (5 шт.), Ручка",
-                name = "Библиотека, читальный зал",
-                status = "Новый",
-                dateTime = ""
             )
         )
     }
