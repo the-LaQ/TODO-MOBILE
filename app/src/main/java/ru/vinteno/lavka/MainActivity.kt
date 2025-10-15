@@ -40,11 +40,7 @@ class MainActivity : AppCompatActivity() {
         btnRefresh.setOnClickListener { viewModel.refresh() }
 
         // TODO: Задание 1 - Создайте адаптер OrdersAdapter и подключите его к RecyclerView
-        // Hint: val adapter = OrdersAdapter()
-        // Hint: recycler.layoutManager = LinearLayoutManager(this)
-        // Hint: recycler.adapter = adapter
 
-        // Add item decoration for better spacing
         val spacing = resources.getDimensionPixelSize(R.dimen.spacing_sm)
         recycler.addItemDecoration(OrderItemDecoration(spacing))
 
@@ -70,8 +66,6 @@ class MainActivity : AppCompatActivity() {
                         recycler.isVisible = true
                         stateError.isVisible = false
                         stateEmpty.isVisible = false
-                        // TODO: Задание 2 - Передайте список заказов в адаптер
-                        // Hint: adapter.submitList(state.orders)
                         swipe.isRefreshing = false
                     }
 

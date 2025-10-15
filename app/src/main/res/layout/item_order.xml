@@ -17,7 +17,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Order Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,6 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_lg"
                 android:backgroundTint="@color/primary"
+                android:clickable="false"
                 android:fontFamily="sans-serif-medium"
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"

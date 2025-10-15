@@ -78,16 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvOrders"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:overScrollMode="never"
-                android:paddingTop="@dimen/spacing_md"
-                android:paddingBottom="100dp"
-                android:scrollbars="none"
-                tools:listitem="@layout/item_order" />
+
 
             <ProgressBar
                 android:id="@+id/progress"
