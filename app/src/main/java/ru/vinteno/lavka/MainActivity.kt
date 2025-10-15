@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import ru.vinteno.lavka.ui.OrdersAdapter
 import ru.vinteno.lavka.ui.OrdersUiState
 import ru.vinteno.lavka.ui.OrdersViewModel
 import android.widget.Toast
@@ -41,6 +42,10 @@ class MainActivity : AppCompatActivity() {
 
         // TODO: Задание 1 - Создайте адаптер OrdersAdapter и подключите его к RecyclerView
 
+        val adapter = OrdersAdapter()
+        recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+        recycler.adapter = adapter
+
         val spacing = resources.getDimensionPixelSize(R.dimen.spacing_sm)
         recycler.addItemDecoration(OrderItemDecoration(spacing))
 
@@ -67,6 +72,9 @@ class MainActivity : AppCompatActivity() {
                         stateError.isVisible = false
                         stateEmpty.isVisible = false
                         swipe.isRefreshing = false
+
+                        adapter.submitList(state.orders)
+
                     }
 
                     is OrdersUiState.Empty -> {
